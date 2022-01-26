@@ -1,12 +1,5 @@
 import discord 
 from discord.ext import commands 
-import asyncio
-import datetime
-import sys
-import os
-import praw
-import random
-#from discord.ext.commands.cooldowns import BucketType
 
 bot = commands.Bot(command_prefix="w!", case_insensitive=True)
 
@@ -20,13 +13,13 @@ async def status_task():
 
 @bot.event
 async def on_ready():
-    print('Weebchan is Online')
+    print('Bot is Online')
     bot.loop.create_task(status_task())
 
 @bot.command()
 async def test(ctx):
     embed = discord.Embed(
-        description = f"I am online senpai {ctx.author.mention}!",
+        description = f"I am online {ctx.author.mention}!",
         colour = discord.Colour.green()  
     )
     await ctx.send(embed=embed)
